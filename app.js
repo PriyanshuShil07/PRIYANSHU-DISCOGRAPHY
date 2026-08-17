@@ -4,25 +4,25 @@
 // ==========================================
 const ENCODED_PASSWORD = btoa("Priyanshu2026");
 
-// Tracklist strictly mapped to the emoji-free Mac file names
+// Complete 20 Track list mapped EXACTLY to your emoji file names
 let mySongs = [
-  { title: "Ab Keh Bhi Do Na (v1)", file_path: "Music/__Ab Keh Bhi Do Na__(1)_011821.mp3" },
-  { title: "Ab Keh Bhi Do Na (v2)", file_path: "Music/__Ab Keh Bhi Do Na___011709.mp3" },
-  { title: "Code Mera Dil", file_path: "Music/_Code Mera Dil_ (Techy Love Song) _.mp3" },
+  { title: "Ab Keh Bhi Do Na (v1)", file_path: "Music/_💖 _Ab Keh Bhi Do Na_ 💖_ (1)_011821.mp3" },
+  { title: "Ab Keh Bhi Do Na (v2)", file_path: "Music/_💖 _Ab Keh Bhi Do Na_ 💖__011709.mp3" },
+  { title: "Code Mera Dil", file_path: "Music/_Code Mera Dil_ (Techy Love Song) 💻💘_.mp3" },
   { title: "Tera Haath Mera Haath (v1)", file_path: "Music/_Tera Haath Mera Haath_ (1).mp3" },
   { title: "Tera Haath Mera Haath (v2)", file_path: "Music/_Tera Haath Mera Haath_.mp3" },
-  { title: "Tujhse Kahan Juda Hoon Main (v1)", file_path: "Music/_Tujhse Kahan Juda Hoon Main_ (Romantic Love Song) (1).mp3" }, 
-  { title: "Tujhse Kahan Juda Hoon Main (v2)", file_path: "Music/_Tujhse Kahan Juda Hoon Main_ (Romantic Love Song).mp3" }, 
-  { title: "Meri Duniya Hai Tu (v1)", file_path: "Music/_Meri Duniya Hai Tu_(1)_012029.mp3" },
-  { title: "Meri Duniya Hai Tu (v2)", file_path: "Music/_Meri Duniya Hai Tu__011926.mp3" },
-  { title: "Sirf Tum (v1)", file_path: "Music/_Sirf Tum_ (1)_011328.mp3" },
-  { title: "Sirf Tum (FLAC 1)", file_path: "Music/_Sirf Tum__011026 (1).flac" },
-  { title: "Sirf Tum (v2)", file_path: "Music/_Sirf Tum__011026.mp3" },
-  { title: "Tere Bina (v1)", file_path: "Music/_Tere Bina___(1)_011133.mp3" },
-  { title: "Tere Bina (FLAC)", file_path: "Music/_Tere Bina___011238.flac" },
-  { title: "Tere Bina (v2)", file_path: "Music/_Tere Bina___011238.mp3" },
-  { title: "Firewall Pyaar", file_path: "Music/3. _Firewall Pyaar_ (Heartbreak Song)_.mp3" }, 
-  { title: "Reboot Dil Ka", file_path: "Music/4. _Reboot Dil Ka_ (Confession Song).mp3" },
+  { title: "Tujhse Kahan Juda Hoon Main (v1)", file_path: "Music/_Tujhse Kahan Juda Hoon Main_ (Romantic Love Song) ❤️🎶 (1).mp3" }, 
+  { title: "Tujhse Kahan Juda Hoon Main (v2)", file_path: "Music/_Tujhse Kahan Juda Hoon Main_ (Romantic Love Song) ❤️🎶.mp3" }, 
+  { title: "Meri Duniya Hai Tu (v1)", file_path: "Music/💖 _Meri Duniya Hai Tu_ 💖_ (1)_012029.mp3" },
+  { title: "Meri Duniya Hai Tu (v2)", file_path: "Music/💖 _Meri Duniya Hai Tu_ 💖__011926.mp3" },
+  { title: "Sirf Tum (v1)", file_path: "Music/💖 _Sirf Tum_ 💖_ (1)_011328.mp3" },
+  { title: "Sirf Tum (FLAC 1)", file_path: "Music/💖 _Sirf Tum_ 💖__011026 (1).flac" },
+  { title: "Sirf Tum (v2)", file_path: "Music/💖 _Sirf Tum_ 💖__011026.mp3" },
+  { title: "Tere Bina (v1)", file_path: "Music/💖 _Tere Bina_ 💖_ (1)_011133.mp3" },
+  { title: "Tere Bina (FLAC)", file_path: "Music/💖 _Tere Bina_ 💖__011238.flac" },
+  { title: "Tere Bina (v2)", file_path: "Music/💖 _Tere Bina_ 💖__011238.mp3" },
+  { title: "Firewall Pyaar", file_path: "Music/3. _Firewall Pyaar_ (Heartbreak Song) 💔🔥_.mp3" }, 
+  { title: "Reboot Dil Ka", file_path: "Music/4. _Reboot Dil Ka_ (Confession Song) 🌅❤️.mp3" },
   { title: "Love Song (v1)", file_path: "Music/Love song (1)_034625.mp3" },
   { title: "Love Song (v2)", file_path: "Music/Love song (2)_034450.mp3" },
   { title: "Sukoon (The Anchor)", file_path: "Music/Sukoon(The Anchor).mp3" }
@@ -111,7 +111,6 @@ function setGreeting() {
 }
 
 function setupSocialFeatures() {
-  // 3D Tilt Effect on Album Art (Disabled on Mobile for better scrolling)
   const tiltContainer = document.getElementById('tilt-container');
   const coverContainer = document.getElementById('cover-container');
   
@@ -172,7 +171,6 @@ function setupAudioContext() {
       bassFilter.frequency.value = 200;
       bassFilter.gain.value = 0;
 
-      // Web Audio routing for visualization
       if (window.location.protocol !== 'file:') {
         sourceA = audioCtx.createMediaElementSource(playerA);
         sourceB = audioCtx.createMediaElementSource(playerB);
@@ -321,6 +319,7 @@ function loadSong(index, shouldPlay = false) {
   terminalText.innerText = `> Playing: ${song.title}`;
   
   activePlayer.pause();
+  
   activePlayer.src = song.file_path;
   activePlayer.volume = parseFloat(volumeSlider.value) || 1;
   
