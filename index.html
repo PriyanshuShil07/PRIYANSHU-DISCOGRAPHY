@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Priyanshu Shil | Original Discography</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  
+  <!-- Advanced Background Layers -->
+  <div id="ambient-glow" class="ambient-glow"></div>
+  <canvas id="matrix-canvas" aria-hidden="true"></canvas>
+  <div id="hearts-container" aria-hidden="true"></div>
+
+  <!-- Lock Screen -->
+  <div id="lock-screen" class="glass-panel lock-screen premium-glass">
+    <div class="lock-ring" aria-hidden="true">
+      <i class="fas fa-lock lock-icon"></i>
+    </div>
+    <h2>Private Access</h2>
+    <p>System encrypted. Authentication required.</p>
+    <input type="password" id="password-input" placeholder="Enter Password" class="premium-input" aria-label="Password Input">
+    <button id="unlock-btn" class="glow-btn">Initialize</button>
+    <p id="error-msg" aria-live="polite">Authentication Failed.</p>
+  </div>
+
+  <!-- Dedication Modal -->
+  <div id="dedication-overlay" class="modal-overlay" aria-modal="true" role="dialog">
+    <div class="glass-panel modal-content premium-glass">
+      <button id="close-modal-btn" class="close-btn" aria-label="Close Modal"><i class="fas fa-times"></i></button>
+      <h3><i class="fab fa-whatsapp" style="color: #25D366; text-shadow: 0 0 10px rgba(37,211,102,0.5);" aria-hidden="true"></i> Dedicate a Track</h3>
+      <p>Send <span id="modal-track-name" class="highlight-text">this song</span> to someone special.</p>
+      <input type="text" id="dedicate-name" placeholder="Enter their name..." class="premium-input" aria-label="Recipient Name">
+      <button id="send-dedication-btn" class="glow-btn whatsapp-glow">Generate Link</button>
+    </div>
+  </div>
+
+  <!-- Main App -->
+  <div class="app-wrapper" id="main-app" style="display: none; opacity: 0;">
+    
+    <!-- Left Column: Player -->
+    <div class="player-card glass-panel premium-glass" id="player-card">
+      
+      <!-- Track Notes / Lyrics Overlay -->
+      <div id="notes-overlay" class="notes-overlay premium-glass">
+        <button id="close-notes-btn" class="close-btn" aria-label="Close Lyrics"><i class="fas fa-times"></i></button>
+        <h3><i class="fas fa-terminal terminal-icon" aria-hidden="true"></i> System Console</h3>
+        <p id="notes-track-title" class="notes-title"></p>
+        <div class="notes-content">
+          <p id="notes-text" class="terminal-text" aria-live="polite">Awaiting data stream...</p>
+        </div>
+      </div>
+
+      <!-- 3D Tilt Container for Album Art -->
+      <div class="tilt-container" id="tilt-container">
+        <div class="cover-art-container" id="cover-container">
+          <div class="cover-overlay"></div>
+          <img id="cover-art" src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?q=80&w=600&auto=format&fit=crop" alt="Album Cover Art representing the current track">
+        </div>
+      </div>
+      
+      <div class="track-info">
+        <h2 id="now-playing-title">Ready to Play</h2>
+        <p id="now-playing-artist">Priyanshu Shil</p>
+      </div>
+
+      <!-- Upgraded Smooth Visualizer -->
+      <canvas id="freq-visualizer" width="350" height="80" aria-label="Audio Frequency Visualizer"></canvas>
+
+      <!-- Dual Audio Players (for crossfading) -->
+      <audio id="audio-player-a" aria-hidden="true"></audio>
+      <audio id="audio-player-b" aria-hidden="true"></audio>
+
+      <!-- Progress Bar -->
+      <div class="progress-wrapper">
+        <div class="progress-container" id="progress-container" role="progressbar" tabindex="0" aria-label="Track Progress">
+          <div class="progress-bar" id="progress-bar">
+            <div class="progress-glow"></div>
+          </div>
+        </div>
+        <div class="time-display" aria-hidden="true">
+          <span id="current-time">0:00</span>
+          <span id="duration">0:00</span>
+        </div>
+      </div>
+
+      <!-- Controls -->
+      <div class="controls-wrapper">
+        <div class="extra-controls action-group">
+          <button id="sleep-timer-btn" class="action-btn small-btn hover-glow" aria-label="Sleep Timer"><i class="fas fa-moon"></i></button>
+          <button id="overclock-btn" class="action-btn small-btn hover-glow" aria-label="Toggle Overclock Bass Mode"><i class="fas fa-bolt"></i></button>
+          <button id="shuffle-btn" class="action-btn small-btn hover-glow" aria-label="Toggle Shuffle"><i class="fas fa-random"></i></button>
+        </div>
+        
+        <div class="controls">
+          <button id="prev-btn" class="action-btn hover-glow" aria-label="Previous Track"><i class="fas fa-backward"></i></button>
+          <button id="play-btn" class="action-btn play-pause neon-border" aria-label="Play or Pause Track"><i class="fas fa-play"></i></button>
+          <button id="next-btn" class="action-btn hover-glow" aria-label="Next Track"><i class="fas fa-forward"></i></button>
+        </div>
+
+        <div class="extra-controls action-group">
+          <button id="share-btn" class="action-btn small-btn hover-glow" aria-label="Share Track"><i class="fab fa-whatsapp"></i></button>
+          <button id="download-btn" class="action-btn small-btn hover-glow" aria-label="Download Track"><i class="fas fa-download"></i></button>
+          <button id="repeat-btn" class="action-btn small-btn hover-glow" aria-label="Toggle Repeat"><i class="fas fa-redo"></i></button>
+        </div>
+      </div>
+
+      <!-- Main Volume -->
+      <div class="volume-container">
+        <i class="fas fa-volume-up" id="mute-icon" style="cursor: pointer; transition: 0.3s;" aria-label="Mute Audio" role="button" tabindex="0"></i>
+        <input type="range" id="volume-slider" class="styled-slider" min="0" max="1" step="0.01" value="1" aria-label="Volume Control">
+      </div>
+    </div>
+
+    <!-- Right Column: Playlist -->
+    <div class="playlist-card glass-panel premium-glass">
+      <div class="playlist-header">
+        <div class="header-top">
+          <p id="greeting-text" class="gradient-text"></p>
+          <div class="header-actions">
+            <button id="notes-toggle-btn" class="romance-btn hover-glow" aria-label="Show Lyrics">
+              <i class="fas fa-file-code"></i> Lyrics
+            </button>
+            <button id="hacker-btn" class="romance-btn hacker-btn hover-glow" aria-label="Toggle Hacker Mode">
+              <i class="fas fa-microchip"></i> Hack
+            </button>
+            <button id="romance-btn" class="romance-btn hover-glow" aria-label="Toggle Romance Mode">
+              <i class="fas fa-heart"></i> Vibe
+            </button>
+            <div class="theme-dropdown-wrapper">
+              <i class="fas fa-palette theme-icon" aria-hidden="true"></i>
+              <select id="theme-select" class="theme-select-dropdown" aria-label="Select Theme">
+                <option value="romantic">Midnight Aura</option>
+                <option value="cyber">Cyber Grid</option>
+                <option value="synthwave">Neon Pulse</option>
+                <option value="custom">Custom Color</option>
+              </select>
+              <input type="color" id="bg-color-picker" value="#050203" aria-label="Custom Background Color">
+            </div>
+          </div>
+        </div>
+<<<<<<< Updated upstream
+        
+        <!-- Ambient Controls (Previously missing from HTML) -->
+        <div class="ambient-controls">
+          <div class="ambient-slider">
+            <i class="fas fa-cloud-rain" aria-hidden="true" title="Ambient Rain"></i>
+            <input type="range" id="ambient-rain" class="styled-slider small-slider" min="0" max="1" step="0.01" value="0" aria-label="Ambient Rain Volume">
+          </div>
+          <div class="ambient-slider">
+            <i class="fas fa-keyboard" aria-hidden="true" title="Ambient Keyboard"></i>
+            <input type="range" id="ambient-keyboard" class="styled-slider small-slider" min="0" max="1" step="0.01" value="0" aria-label="Ambient Keyboard Volume">
+          </div>
+        </div>
+
+        <h3 class="discography-title">Discography Matrix</h3>
+=======
+        <h3><i class="fas fa-terminal"></i> Discography</h3>
+>>>>>>> Stashed changes
+      </div>
+      
+      <div class="search-container">
+        <i class="fas fa-search search-icon" aria-hidden="true"></i>
+        <input type="text" id="search-input" placeholder="Search databanks..." class="premium-input" aria-label="Search Tracks">
+      </div>
+
+      <div id="playlist" class="custom-scrollbar" role="list">
+        <!-- JS dynamically renders tracks here -->
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

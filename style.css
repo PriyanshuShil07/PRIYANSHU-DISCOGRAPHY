@@ -1,0 +1,370 @@
+/* =========================================
+   CORE VARIABLES & ANIMATIONS
+   ========================================= */
+:root {
+  --primary: #ffb4a2;
+  --primary-glow: rgba(255, 180, 162, 0.6);
+  --glass-bg: rgba(20, 18, 24, 0.55);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --text-light: #ffe6ea;
+  --text-muted: #b5838d;
+  --cyber-green: #4ade80;
+  --whatsapp: #25D366;
+}
+
+body {
+<<<<<<< Updated upstream
+  margin: 0; 
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  color: var(--text-light); 
+  min-height: 100vh; 
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  background: linear-gradient(-45deg, #050203, #1a0b12, #0d0609, #000000);
+  overflow-y: auto; 
+  overflow-x: hidden; 
+  transition: background 0.8s ease;
+=======
+  margin: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #ffe6ea; min-height: 100vh; display: flex; justify-content: center; align-items: center; 
+  background: linear-gradient(-45deg, #0a0508, #2a111a, #140b0e, #050203);
+  background-size: 400% 400%; animation: gradientBG 15s ease infinite; 
+  overflow-y: auto; overflow-x: hidden; transition: background 0.5s ease;
+>>>>>>> Stashed changes
+}
+
+/* Optimized Performance: Pulse ambient light instead of moving large background */
+.ambient-glow { 
+  position: fixed; 
+  top: 50%; left: 50%; 
+  transform: translate(-50%, -50%); 
+  width: 60vw; height: 60vw; 
+  background: radial-gradient(circle, var(--primary-glow) 0%, transparent 60%); 
+  filter: blur(120px); 
+  opacity: 0.15; 
+  z-index: -1; 
+  pointer-events: none; 
+  animation: pulseGlow 8s infinite alternate;
+}
+@keyframes pulseGlow { 0% { opacity: 0.1; } 100% { opacity: 0.25; } }
+
+<<<<<<< Updated upstream
+/* =========================================
+   PREMIUM GLASSMORPHISM
+   ========================================= */
+.premium-glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  border: 1px solid var(--glass-border);
+  border-radius: 28px;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6), inset 0 1px 1px rgba(255, 255, 255, 0.1);
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+=======
+#matrix-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; opacity: 0; pointer-events: none; transition: opacity 0.5s ease; }
+#hearts-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1; overflow: hidden; }
+.floating-heart { position: absolute; bottom: -10%; color: rgba(229, 152, 155, 0.8); font-size: 1.5rem; animation: floatUp 5s ease-in forwards; filter: drop-shadow(0 0 5px rgba(229, 152, 155, 0.5)); }
+@keyframes floatUp { 0% { transform: translateY(0) scale(0.8) rotate(0deg); opacity: 1; } 100% { transform: translateY(-120vh) scale(1.5) rotate(360deg); opacity: 0; } }
+
+/* Layout & Panels */
+.app-wrapper { display: flex; gap: 25px; width: 95%; max-width: 1000px; height: 85vh; max-height: 750px; z-index: 10; margin: 20px 0; }
+.glass-panel { 
+  background: rgba(20, 20, 25, 0.4); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); 
+  border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 24px; padding: 30px; 
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5); transition: box-shadow 0.1s ease; 
+>>>>>>> Stashed changes
+}
+
+.premium-glass:hover {
+  box-shadow: 0 35px 70px rgba(0, 0, 0, 0.7), inset 0 1px 2px rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+/* =========================================
+   LAYOUT & TYPOGRAPHY
+   ========================================= */
+.app-wrapper { 
+  display: flex; gap: 30px; width: 95%; max-width: 1100px; height: 88vh; max-height: 800px; z-index: 10; margin: 20px 0; transition: opacity 0.8s ease; 
+}
+.player-card { 
+  flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 20px; position: relative; padding: 40px; 
+}
+.playlist-card { 
+  flex: 1.3; display: flex; flex-direction: column; padding: 30px; 
+}
+
+h2, h3 { margin: 0; font-weight: 700; letter-spacing: 0.5px; }
+
+/* Fixed CSS Linter errors by adding standard background-clip and color fallback */
+.gradient-text { 
+  background: linear-gradient(90deg, var(--primary), #fff); 
+  -webkit-background-clip: text; 
+  background-clip: text;
+  -webkit-text-fill-color: transparent; 
+  color: transparent;
+  font-weight: bold; 
+  letter-spacing: 2px; 
+  text-transform: uppercase; 
+  font-size: 0.85rem;
+}
+
+.highlight-text { color: var(--primary); font-weight: 800; text-shadow: 0 0 12px var(--primary-glow); }
+
+/* =========================================
+   ALBUM ART & VISUALIZER
+   ========================================= */
+.tilt-container { perspective: 1200px; width: 220px; height: 220px; margin-bottom: 5px; }
+.cover-art-container { width: 100%; height: 100%; border-radius: 50%; overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.5), 0 0 25px var(--primary-glow); border: 3px solid rgba(255,180,162,0.3); transform-style: preserve-3d; transition: transform 0.15s ease-out; position: relative; }
+.cover-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.2), transparent 60%); z-index: 2; border-radius: 50%; pointer-events: none; }
+#cover-art { width: 100%; height: 100%; object-fit: cover; z-index: 1; position: relative; }
+.spin { animation: spinRecord 10s linear infinite; }
+@keyframes spinRecord { 100% { transform: rotate(360deg); } }
+
+#freq-visualizer { width: 100%; height: 70px; border-radius: 16px; margin: 5px 0; filter: drop-shadow(0 0 8px var(--primary-glow)); }
+
+/* =========================================
+   CONTROLS & PROGRESS
+   ========================================= */
+.progress-wrapper { width: 100%; }
+.progress-container { width: 100%; height: 8px; background: rgba(0, 0, 0, 0.4); border-radius: 8px; cursor: pointer; margin-bottom: 12px; box-shadow: inset 0 2px 4px rgba(0,0,0,0.5); overflow: hidden; position: relative; }
+.progress-bar { height: 100%; width: 0%; background: linear-gradient(90deg, #d57a7e, var(--primary)); border-radius: 8px; position: relative; transition: width 0.1s linear; }
+.progress-glow { position: absolute; right: 0; top: 50%; transform: translateY(-50%); width: 10px; height: 20px; background: #fff; filter: blur(5px); }
+.time-display { display: flex; justify-content: space-between; font-size: 0.8rem; color: var(--text-muted); font-weight: 500; }
+
+.controls-wrapper { display: flex; align-items: center; justify-content: space-between; width: 100%; margin-top: 10px; }
+.controls { display: flex; align-items: center; justify-content: center; gap: 25px; }
+.action-group { display: flex; gap: 15px; }
+
+.action-btn { background: none; border: none; color: var(--text-muted); font-size: 1.3rem; cursor: pointer; transition: all 0.3s ease; }
+.hover-glow:hover { color: var(--text-light); text-shadow: 0 0 10px rgba(255,255,255,0.5); transform: translateY(-2px); }
+.play-pause { background: rgba(255, 180, 162, 0.1); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.6rem; color: var(--primary); border: 1px solid rgba(255, 180, 162, 0.4); box-shadow: 0 0 20px rgba(255, 180, 162, 0.15); transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+.play-pause:hover { transform: scale(1.1); box-shadow: 0 0 30px var(--primary-glow); background: rgba(255, 180, 162, 0.2); color: #fff; }
+
+.active-feature { color: #f59e0b !important; text-shadow: 0 0 15px rgba(245, 158, 11, 0.8); animation: pulse 2s infinite; }
+@keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.15); } 100% { transform: scale(1); } }
+
+/* Sliders (Volume & Ambient) */
+.volume-container { display: flex; align-items: center; gap: 15px; width: 85%; margin-top: 15px; }
+.styled-slider { -webkit-appearance: none; appearance: none; width: 100%; height: 6px; background: rgba(255, 255, 255, 0.1); border-radius: 8px; outline: none; cursor: pointer; transition: 0.2s; }
+.styled-slider::-webkit-slider-thumb { -webkit-appearance: none; width: 16px; height: 16px; border-radius: 50%; background: var(--primary); cursor: pointer; box-shadow: 0 0 12px var(--primary-glow); transition: 0.2s; }
+.styled-slider::-webkit-slider-thumb:hover { transform: scale(1.2); }
+
+.ambient-controls { display: flex; gap: 20px; align-items: center; margin: 15px 0; background: rgba(0,0,0,0.2); padding: 10px 15px; border-radius: 12px; }
+.ambient-slider { display: flex; align-items: center; gap: 10px; width: 50%; color: var(--text-muted); font-size: 0.9rem; }
+.small-slider::-webkit-slider-thumb { width: 12px; height: 12px; background: var(--text-muted); box-shadow: none; }
+.small-slider::-webkit-slider-thumb:hover { background: var(--primary); }
+
+/* =========================================
+   PLAYLIST & INPUTS
+   ========================================= */
+.premium-input { width: 100%; padding: 14px 15px 14px 45px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.1); background: rgba(0,0,0,0.3); color: var(--text-light); outline: none; box-sizing: border-box; font-size: 0.95rem; transition: 0.3s; box-shadow: inset 0 2px 5px rgba(0,0,0,0.5); }
+.premium-input:focus { border-color: var(--primary); box-shadow: inset 0 2px 5px rgba(0,0,0,0.5), 0 0 15px rgba(255,180,162,0.2); }
+.search-container { position: relative; margin-bottom: 20px; }
+.search-icon { position: absolute; left: 18px; top: 50%; transform: translateY(-50%); color: var(--text-muted); }
+
+.playlist-header { border-bottom: 1px solid rgba(255, 255, 255, 0.08); padding-bottom: 15px; margin-bottom: 15px; }
+<<<<<<< Updated upstream
+.header-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; flex-wrap: wrap; }
+.header-actions { display: flex; gap: 10px; }
+=======
+.header-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; flex-wrap: wrap; }
+.header-actions { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; justify-content: flex-end;}
+#greeting-text { margin: 0; color: #ffb4a2; font-size: 0.85em; text-transform: uppercase; letter-spacing: 2px; }
+>>>>>>> Stashed changes
+
+.romance-btn { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 8px 14px; color: var(--text-muted); font-weight: 600; cursor: pointer; font-size: 0.8rem; transition: all 0.3s; display: flex; align-items: center; gap: 6px; }
+.romance-btn.active { background: rgba(255,180,162,0.15); border-color: var(--primary); color: #fff; box-shadow: 0 0 15px var(--primary-glow); }
+.hacker-btn.active { background: rgba(74,222,128,0.15); border-color: var(--cyber-green); color: #fff; box-shadow: 0 0 15px rgba(74,222,128,0.5); }
+
+.theme-dropdown-wrapper { display: flex; align-items: center; gap: 8px; background: rgba(0,0,0,0.3); padding: 8px 14px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); cursor: pointer; transition: 0.3s; }
+.theme-dropdown-wrapper:hover { border-color: rgba(255,255,255,0.3); }
+.theme-select-dropdown { background: transparent; border: none; color: var(--text-light); outline: none; cursor: pointer; font-weight: 600; font-size: 0.8rem; }
+.theme-select-dropdown option { background: #140b0e; padding: 10px; }
+
+/* Fixed CSS Linter error by adding standard appearance property */
+#bg-color-picker { 
+  -webkit-appearance: none; 
+  appearance: none;
+  border: none; 
+  width: 25px; 
+  height: 25px; 
+  border-radius: 5px; 
+  cursor: pointer; 
+  background: transparent; 
+  display: none; 
+}
+#bg-color-picker::-webkit-color-swatch-wrapper { padding: 0; }
+#bg-color-picker::-webkit-color-swatch { border: 1px solid rgba(255,255,255,0.3); border-radius: 5px; }
+
+/* Song Items */
+#playlist { overflow-y: auto; flex-grow: 1; padding-right: 10px; }
+.custom-scrollbar::-webkit-scrollbar { width: 6px; }
+.custom-scrollbar::-webkit-scrollbar-track { background: rgba(0,0,0,0.2); border-radius: 10px; }
+
+/* Fixed CSS Linter error by removing transition from pseudo-element */
+.custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 10px; }
+.custom-scrollbar::-webkit-scrollbar-thumb:hover { background: var(--primary); }
+
+.song-item { padding: 16px 20px; background: rgba(255, 255, 255, 0.02); margin-bottom: 10px; border-radius: 16px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: all 0.3s ease; border-left: 4px solid transparent; font-weight: 500; }
+.song-item:hover { background: rgba(255, 255, 255, 0.06); border-left: 4px solid var(--text-muted); transform: translateX(5px); }
+.song-item.active { background: linear-gradient(90deg, rgba(255,180,162,0.15), transparent); border-left: 4px solid var(--primary); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+.song-info-wrapper { display: flex; align-items: center; width: 100%; }
+.drag-handle { color: rgba(255,255,255,0.1); margin-right: 10px; cursor: grab; transition: 0.3s; }
+.song-item:hover .drag-handle { color: var(--text-muted); }
+.like-btn-wrapper { background: none; border: none; padding: 0; margin-right: 15px; cursor: pointer; display: flex; }
+.like-btn { color: rgba(255,255,255,0.2); font-size: 1.1rem; transition: 0.3s; }
+.like-btn-wrapper:hover .like-btn { color: var(--primary); transform: scale(1.2); }
+.like-btn.liked { color: #ef4444; text-shadow: 0 0 10px rgba(239, 68, 68, 0.6); animation: heartPop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+@keyframes heartPop { 0% { transform: scale(1); } 50% { transform: scale(1.5); } 100% { transform: scale(1); } }
+
+/* =========================================
+   OVERLAYS & MODALS
+   ========================================= */
+.lock-screen { position: absolute; width: 380px; max-width: 90%; z-index: 2000; text-align: center; padding: 50px 30px; }
+.lock-ring { width: 80px; height: 80px; border-radius: 50%; border: 2px dashed var(--primary); margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; animation: spinRecord 15s linear infinite; }
+.lock-icon { font-size: 2rem; color: var(--primary); animation: spinRecord 15s linear infinite reverse; }
+
+.glow-btn { width: 100%; background: var(--primary); border: none; color: #000; font-weight: 800; font-size: 1.1rem; padding: 15px; border-radius: 16px; cursor: pointer; transition: 0.3s; margin-top: 10px; box-shadow: 0 0 20px var(--primary-glow); }
+.glow-btn:hover { background: #fff; box-shadow: 0 0 30px rgba(255,255,255,0.8); transform: translateY(-2px); }
+.whatsapp-glow { background: var(--whatsapp); color: #fff; box-shadow: 0 0 20px rgba(37,211,102,0.4); }
+.whatsapp-glow:hover { background: #1ebe5d; box-shadow: 0 0 30px rgba(37,211,102,0.7); }
+
+#error-msg { color: #ef4444; font-weight: bold; margin-top: 15px; opacity: 0; transition: 0.3s; text-shadow: 0 0 10px rgba(239,68,68,0.5); }
+
+.notes-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 20; display: flex; flex-direction: column; align-items: center; justify-content: center; opacity: 0; pointer-events: none; padding: 30px; text-align: center; box-sizing: border-box; background: rgba(10,5,8,0.85); }
+.notes-overlay.show { opacity: 1; pointer-events: auto; }
+.terminal-icon { color: var(--cyber-green); margin-right: 10px; }
+.terminal-text { font-family: 'Courier New', monospace; color: var(--cyber-green); font-size: 1.2rem; text-shadow: 0 0 8px rgba(74,222,128,0.6); }
+
+.modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 3000; display: none; align-items: center; justify-content: center; opacity: 0; transition: 0.4s ease; backdrop-filter: blur(10px); }
+.modal-overlay.show { display: flex; opacity: 1; }
+<<<<<<< Updated upstream
+.modal-content { width: 400px; padding: 40px 30px; }
+.close-btn { position: absolute; top: 20px; right: 25px; background: none; border: none; color: var(--text-muted); font-size: 1.5rem; cursor: pointer; transition: 0.3s; }
+.close-btn:hover { color: #fff; transform: rotate(90deg); }
+=======
+.modal-content { width: 350px; text-align: center; position: relative; max-width: 90%; }
+.styled-input { width: 80%; padding: 12px; border-radius: 10px; border: 1px solid rgba(255, 255, 255, 0.2); background: rgba(0, 0, 0, 0.3); color: #ffe6ea; outline: none; margin: 15px 0; text-align: center; }
+.action-btn-large { background: rgba(37, 211, 102, 0.2); border: 1px solid rgba(37, 211, 102, 0.5); color: #fff; padding: 12px 25px; border-radius: 20px; cursor: pointer; transition: all 0.3s; font-weight: bold; margin-top: 10px; }
+.action-btn-large:hover { background: rgba(37, 211, 102, 0.4); transform: scale(1.05); box-shadow: 0 0 15px rgba(37, 211, 102, 0.4); }
+.close-btn { position: absolute; top: 20px; right: 20px; background: none; border: none; color: #ffb4a2; font-size: 1.5em; cursor: pointer; }
+>>>>>>> Stashed changes
+
+/* =========================================
+   EFFECTS & MOBILE
+   ========================================= */
+#matrix-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; pointer-events: none; z-index: 0; transition: 0.8s ease; }
+#hearts-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1; overflow: hidden; }
+
+<<<<<<< Updated upstream
+@media (max-width: 768px) {
+  .app-wrapper { flex-direction: column; height: auto; max-height: none; gap: 20px; }
+  
+  /* Reduced side padding to give buttons more breathing room */
+  .player-card { padding: 30px 15px; width: 100%; box-sizing: border-box; } 
+  .playlist-card { height: 600px; padding: 20px; }
+  .tilt-container { width: 180px; height: 180px; }
+  .play-pause { width: 55px; height: 55px; font-size: 1.4rem; }
+  .header-actions { justify-content: center; width: 100%; flex-wrap: wrap; }
+  .ambient-controls { flex-direction: column; gap: 10px; }
+  .ambient-slider { width: 100%; }
+  
+  /* 🛠️ STRICT GRID LAYOUT: completely prevents buttons from going off-screen */
+  .controls-wrapper { 
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important; /* Splits screen into two equal halves */
+    grid-template-areas: 
+      "main main"
+      "left right" !important;
+    gap: 15px 5px !important;
+    width: 100% !important;
+    margin-top: 15px !important;
+    padding: 0 5px;
+    box-sizing: border-box;
+  }
+  
+  /* Forces the main Play/Prev/Next buttons to the top row */
+  .controls { 
+    grid-area: main !important;
+    display: flex !important;
+    width: 100% !important; 
+    justify-content: center !important; 
+    gap: 25px !important; 
+  }
+  
+  /* Pins the first 3 buttons to the left half */
+  .controls-wrapper > .action-group:first-child { 
+    grid-area: left !important;
+    display: flex !important;
+    justify-content: center !important; 
+    gap: 12px !important;
+  }
+  
+  /* Pins the last 3 buttons to the right half */
+  .controls-wrapper > .action-group:last-child { 
+    grid-area: right !important;
+    display: flex !important;
+    justify-content: center !important; 
+    gap: 12px !important;
+  }
+  
+  /* Slightly scale down secondary icons on mobile to guarantee they fit */
+  .action-btn.small-btn {
+    font-size: 1.1rem !important; 
+  }
+}
+=======
+/* =========================================
+   📱 MOBILE POLISH (RESPONSIVE DESIGN)
+   ========================================= */
+@media (max-width: 768px) {
+  body { align-items: flex-start; padding: 10px 0; }
+  .app-wrapper { flex-direction: column; height: auto; max-height: none; width: 95%; margin: 0 auto; gap: 15px; }
+  .glass-panel { padding: 20px 15px; }
+  
+  /* Scale down player elements */
+  .tilt-container { width: 140px; height: 140px; margin-bottom: 5px; }
+  #now-playing-title { font-size: 1.2em; margin-bottom: 5px; }
+  .controls { gap: 15px; }
+  .play-pause { width: 45px; height: 45px; font-size: 1.2em; }
+  .action-btn { font-size: 1.1em; }
+  .small-btn { font-size: 0.9em; }
+  
+  /* Fix ambient controls layout */
+  .ambient-controls { flex-wrap: wrap; justify-content: center; gap: 8px; padding: 12px; }
+  .ambient-slider { width: 60%; }
+  
+  /* FIXED: Playlist Header for Mobile */
+  .playlist-card { height: 500px; }
+  
+  .header-top { 
+    flex-direction: column; 
+    align-items: center; 
+    gap: 15px; 
+    text-align: center; 
+  }
+  
+  #greeting-text { 
+    white-space: nowrap; 
+    font-size: 1em;
+    margin-bottom: 5px;
+  }
+  
+  .header-actions { 
+    justify-content: center; 
+    flex-wrap: wrap; 
+    width: 100%; 
+    gap: 10px;
+  }
+  
+  .theme-dropdown-wrapper {
+    margin-top: 5px;
+    width: auto;
+    justify-content: center;
+  }
+  
+  /* Touch screen specific fixes */
+  .drag-handle { opacity: 0.4; } 
+}
+>>>>>>> Stashed changes
