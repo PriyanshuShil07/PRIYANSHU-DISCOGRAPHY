@@ -4,76 +4,28 @@
 // ==========================================
 const ENCODED_PASSWORD = btoa("Priyanshu2026");
 
-// Complete 20 Track list with Sync Lyrics Support
+// Tracklist strictly mapped to the emoji-free Mac file names
 let mySongs = [
-  { 
-    title: "Ab Keh Bhi Do Na (v1)", 
-    file_path: "Music/_💖 _Ab Keh Bhi Do Na_ 💖_ (1)_011821.mp3", 
-    lyrics: [
-      { time: 0, text: "> Init script: Preparing vocal tracks..." },
-      { time: 10, text: "> Please confess your love..." },
-      { time: 25, text: "> Error: Heartbeat skipping." }
-    ] 
-  },
-  { title: "Ab Keh Bhi Do Na (v2)", file_path: "Music/_💖 _Ab Keh Bhi Do Na_ 💖__011709.mp3", lyrics: [] },
-  { 
-    title: "Code Mera Dil", 
-    file_path: "Music/_Code Mera Dil_ (Techy Love Song) 💻💘_.mp3",
-    lyrics: [
-      { time: 0, text: "> Init script: Loading emotions..." },
-      { time: 5, text: "> Establishing connection to your heart..." },
-      { time: 15, text: "> If (love == true) { compile(); }" }
-    ]
-  },
-  { title: "Tera Haath Mera Haath (v1)", file_path: "Music/_Tera Haath Mera Haath_ (1).mp3", lyrics: [] },
-  { title: "Tera Haath Mera Haath (v2)", file_path: "Music/_Tera Haath Mera Haath_.mp3", lyrics: [] },
-  { title: "Tujhse Kahan Juda Hoon Main (v1)", file_path: "Music/_Tujhse Kahan Juda Hoon Main_ (Love Song) ❤️🎶 (1).mp3", lyrics: [] }, 
-  { title: "Tujhse Kahan Juda Hoon Main (v2)", file_path: "Music/_Tujhse Kahan Juda Hoon Main_ (Love Song) ❤️🎶.mp3", lyrics: [] }, 
-  { title: "Meri Duniya Hai Tu (v1)", file_path: "Music/💖 _Meri Duniya Hai Tu_ 💖 (1)_012029.mp3", lyrics: [] },
-  { title: "Meri Duniya Hai Tu (v2)", file_path: "Music/💖 _Meri Duniya Hai Tu_ 💖_011926.mp3", lyrics: [] },
-  { title: "Sirf Tum (v1)", file_path: "Music/💖 _Sirf Tum_ 💖 (1)_011328.mp3", lyrics: [] },
-  { title: "Sirf Tum (FLAC 1)", file_path: "Music/💖 _Sirf Tum_ 💖_011026 (1).flac", lyrics: [] },
-  { title: "Sirf Tum (v2)", file_path: "Music/💖 _Sirf Tum_ 💖_011026.mp3", lyrics: [] },
-  { title: "Tere Bina (v1)", file_path: "Music/💖 _Tere Bina_ 💖_ (1)_011133.mp3", lyrics: [] },
-  { title: "Tere Bina (FLAC)", file_path: "Music/💖 _Tere Bina_ 💖__011238.flac", lyrics: [] },
-  { title: "Tere Bina (v2)", file_path: "Music/💖 _Tere Bina_ 💖__011238.mp3", lyrics: [] },
-  { title: "Firewall Pyaar", file_path: "Music/3. _Firewall Pyaar_ (Heartbreak Song) 💔🔥_.mp3", lyrics: [] }, 
-  { title: "Reboot Dil Ka", file_path: "Music/4. _Reboot Dil Ka_ (Confession Song) 🌅❤️.mp3", lyrics: [] },
-  { title: "Love Song (v1)", file_path: "Music/Love song (1)_034625.mp3", lyrics: [] },
-  { title: "Love Song (v2)", file_path: "Music/Love song (2)_034450.mp3", lyrics: [] },
-  {
-    title: "Sukoon (The Anchor)",
-    file_path: "Music/Sukoon(The Anchor).mp3",
-    lyrics: [
-      { time: 0, text: "> Ye shor bhare campus mein apna ek alag frame hai..." },
-      { time: 5, text: "> Bina lafzon ke jo chal raha ek alag hi game hai..." },
-      { time: 10, text: "> Tasveer ke us ek pal mein jab faasle the mite..." },
-      { time: 15, text: "> Bina dare jab tere mere kandhe the jude..." },
-      { time: 20, text: "> Wahi samajh gaya tha main ye sirf aadat nahi..." },
-      { time: 25, text: "> Jo sukoon tere paas hai wo aur kahin nahi..." },
-      { time: 30, text: "> Tu hai roshan aag si main thehra hui zameen..." },
-      { time: 35, text: "> Teri befikar hasi mein milta hai sukoon yahin..." },
-      { time: 40, text: "> Meri khamosh duniya ko teri hi zarurat hai..." },
-      { time: 45, text: "> Ye jo bhi hai apne beech badi khoobsurat hai..." },
-      { time: 50, text: "> Ye ishq nahi aasaan iski neev badi gehri hai..." },
-      { time: 55, text: "> Meri is chup mein ek lambi kahani thehri hai..." },
-      { time: 60, text: "> Tu bas aage badhna har raasta main banaunga..." },
-      { time: 65, text: "> Tera anchor banke har toofan sambhalunga..." },
-      { time: 70, text: "> Naya chapter hai ye aur nayi hai shuruaat..." },
-      { time: 75, text: "> Pareshan mat hona chhodna mat mera saath..." },
-      { time: 80, text: "> Design ka ho ya duniya ka tera stress ab mera hai..." },
-      { time: 85, text: "> In anjaan raaston par tu bilkul na akela hai..." },
-      { time: 90, text: "> Main structure banaunga tu bas isme rang bharna..." },
-      { time: 95, text: "> Main khada hoon peeche tu aage badhne se mat darna..." },
-      { time: 100, text: "> Log dhundte hai manzil mujhe tera safar pasand hai..." },
-      { time: 105, text: "> In uljhe hue raaston mein tera asar pasand hai..." },
-      { time: 110, text: "> Ek alag hi frequency hai jo sirf hum sunte hai..." },
-      { time: 115, text: "> Bheed mein rehkar bhi bas apni duniya bunte hai..." },
-      { time: 120, text: "> Meri khamoshi aur teri muskaan..." },
-      { time: 125, text: "> Shor mein sukoon bas tu aur main..." },
-      { time: 130, text: "> Baaki sab baad mein..." }
-    ]
-  }
+  { title: "Ab Keh Bhi Do Na (v1)", file_path: "Music/__Ab Keh Bhi Do Na__(1)_011821.mp3" },
+  { title: "Ab Keh Bhi Do Na (v2)", file_path: "Music/__Ab Keh Bhi Do Na___011709.mp3" },
+  { title: "Code Mera Dil", file_path: "Music/_Code Mera Dil_ (Techy Love Song) _.mp3" },
+  { title: "Tera Haath Mera Haath (v1)", file_path: "Music/_Tera Haath Mera Haath_ (1).mp3" },
+  { title: "Tera Haath Mera Haath (v2)", file_path: "Music/_Tera Haath Mera Haath_.mp3" },
+  { title: "Tujhse Kahan Juda Hoon Main (v1)", file_path: "Music/_Tujhse Kahan Juda Hoon Main_ (Romantic Love Song) (1).mp3" }, 
+  { title: "Tujhse Kahan Juda Hoon Main (v2)", file_path: "Music/_Tujhse Kahan Juda Hoon Main_ (Romantic Love Song).mp3" }, 
+  { title: "Meri Duniya Hai Tu (v1)", file_path: "Music/_Meri Duniya Hai Tu_(1)_012029.mp3" },
+  { title: "Meri Duniya Hai Tu (v2)", file_path: "Music/_Meri Duniya Hai Tu__011926.mp3" },
+  { title: "Sirf Tum (v1)", file_path: "Music/_Sirf Tum_ (1)_011328.mp3" },
+  { title: "Sirf Tum (FLAC 1)", file_path: "Music/_Sirf Tum__011026 (1).flac" },
+  { title: "Sirf Tum (v2)", file_path: "Music/_Sirf Tum__011026.mp3" },
+  { title: "Tere Bina (v1)", file_path: "Music/_Tere Bina___(1)_011133.mp3" },
+  { title: "Tere Bina (FLAC)", file_path: "Music/_Tere Bina___011238.flac" },
+  { title: "Tere Bina (v2)", file_path: "Music/_Tere Bina___011238.mp3" },
+  { title: "Firewall Pyaar", file_path: "Music/3. _Firewall Pyaar_ (Heartbreak Song)_.mp3" }, 
+  { title: "Reboot Dil Ka", file_path: "Music/4. _Reboot Dil Ka_ (Confession Song).mp3" },
+  { title: "Love Song (v1)", file_path: "Music/Love song (1)_034625.mp3" },
+  { title: "Love Song (v2)", file_path: "Music/Love song (2)_034450.mp3" },
+  { title: "Sukoon (The Anchor)", file_path: "Music/Sukoon(The Anchor).mp3" }
 ];
 
 let currentIndex = 0;
@@ -81,7 +33,6 @@ let isPlaying = false;
 let isShuffle = false;
 let isRepeat = false;
 let favoriteSongs = [];
-let fadeInterval = null; 
 
 // Safely access local storage
 try {
@@ -92,7 +43,7 @@ try {
 
 const playerA = document.getElementById('audio-player-a');
 const playerB = document.getElementById('audio-player-b');
-let activePlayer = playerA; let inactivePlayer = playerB;
+let activePlayer = playerA; 
 const coverArt = document.getElementById('cover-art');
 const playBtn = document.getElementById('play-btn');
 const progressContainer = document.getElementById('progress-container');
@@ -159,23 +110,13 @@ function setGreeting() {
   else greetingText.innerText = "Good Evening 🌙";
 }
 
-// -------------------------
-// Interactive Social Features
-// -------------------------
 function setupSocialFeatures() {
-<<<<<<< Updated upstream
-=======
-  // 1. 3D Tilt Effect on Album Art (Disabled on Mobile for better scrolling)
->>>>>>> Stashed changes
+  // 3D Tilt Effect on Album Art (Disabled on Mobile for better scrolling)
   const tiltContainer = document.getElementById('tilt-container');
   const coverContainer = document.getElementById('cover-container');
   
   mainPlayerCard.addEventListener('mousemove', (e) => {
-<<<<<<< Updated upstream
     if (window.innerWidth <= 768) return; 
-=======
-    if (window.innerWidth <= 768) return; // Prevent tilt effect on phones
->>>>>>> Stashed changes
     
     const rect = tiltContainer.getBoundingClientRect();
     const x = e.clientX - rect.left; 
@@ -219,29 +160,35 @@ function setupSocialFeatures() {
   });
 }
 
-// -------------------------
-// Web Audio & Visualizer 
-// -------------------------
 function setupAudioContext() {
   if(!audioCtx) {
-    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-    analyser = audioCtx.createAnalyser();
-    analyser.fftSize = 256;
-    
-    bassFilter = audioCtx.createBiquadFilter();
-    bassFilter.type = "lowshelf";
-    bassFilter.frequency.value = 200;
-    bassFilter.gain.value = 0;
+    try {
+      audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      analyser = audioCtx.createAnalyser();
+      analyser.fftSize = 256;
+      
+      bassFilter = audioCtx.createBiquadFilter();
+      bassFilter.type = "lowshelf";
+      bassFilter.frequency.value = 200;
+      bassFilter.gain.value = 0;
 
-    sourceA = audioCtx.createMediaElementSource(playerA);
-    sourceB = audioCtx.createMediaElementSource(playerB);
-    
-    sourceA.connect(bassFilter);
-    sourceB.connect(bassFilter);
-    bassFilter.connect(analyser);
-    analyser.connect(audioCtx.destination);
-    
-    drawVisualizer();
+      // Web Audio routing for visualization
+      if (window.location.protocol !== 'file:') {
+        sourceA = audioCtx.createMediaElementSource(playerA);
+        sourceB = audioCtx.createMediaElementSource(playerB);
+        
+        sourceA.connect(bassFilter);
+        sourceB.connect(bassFilter);
+        bassFilter.connect(analyser);
+        analyser.connect(audioCtx.destination);
+      } else {
+        console.warn("Running locally via file://. Web Audio visualizer routing skipped to ensure audio plays without CORS blockage.");
+      }
+      
+      drawVisualizer();
+    } catch (e) {
+      console.warn("Audio context creation failed:", e);
+    }
   }
 }
 
@@ -288,9 +235,6 @@ document.getElementById('overclock-btn').addEventListener('click', (e) => {
   }
 });
 
-// -------------------------
-// Playlist & Drag-and-Drop
-// -------------------------
 function renderPlaylist() {
   playlistDiv.innerHTML = ''; 
   mySongs.forEach((song, index) => {
@@ -371,30 +315,23 @@ function handleDrop(e) {
   }
 }
 
-// -------------------------
-// Playback (Immediate Transition)
-// -------------------------
 function loadSong(index, shouldPlay = false) {
   const song = mySongs[index];
   document.getElementById('now-playing-title').innerText = song.title;
-  terminalText.innerText = `> Loading data for ${song.title}...`;
+  terminalText.innerText = `> Playing: ${song.title}`;
   
-  // 1. Instantly stop the currently playing song
   activePlayer.pause();
-  
-  // 2. Load the new track into the active player
   activePlayer.src = song.file_path;
   activePlayer.volume = parseFloat(volumeSlider.value) || 1;
   
   if (shouldPlay) {
     setupAudioContext();
-    if(audioCtx.state === 'suspended') audioCtx.resume();
+    if(audioCtx && audioCtx.state === 'suspended') audioCtx.resume();
     
-    // 3. Play the new song immediately
     let playPromise = activePlayer.play();
     if (playPromise !== undefined) {
       playPromise.catch(error => {
-        console.warn("Playback interrupted. User skipped too quickly.");
+        console.warn("Playback interrupted or missing file.", error);
       });
     }
     isPlaying = true;
@@ -434,7 +371,7 @@ playBtn.addEventListener('click', () => {
     activePlayer.pause();
     isPlaying = false;
   } else {
-    if(audioCtx.state === 'suspended') audioCtx.resume();
+    if(audioCtx && audioCtx.state === 'suspended') audioCtx.resume();
     if(!activePlayer.src) loadSong(currentIndex);
     
     let playPromise = activePlayer.play();
@@ -457,9 +394,6 @@ function highlightCurrentTrack() {
   if(currentEl) currentEl.classList.add('active');
 }
 
-// -------------------------
-// Sync Lyrics & Progress
-// -------------------------
 function updateProgress() {
   if(this !== activePlayer) return;
   const { duration, currentTime } = this;
@@ -470,16 +404,6 @@ function updateProgress() {
   const formatTime = (time) => `${Math.floor(time / 60)}:${Math.floor(time % 60).toString().padStart(2, '0')}`;
   currentTimeEl.innerText = formatTime(currentTime);
   durationEl.innerText = formatTime(duration);
-
-  const song = mySongs[currentIndex];
-  if(song.lyrics && song.lyrics.length > 0) {
-    const currentLine = song.lyrics.slice().reverse().find(l => currentTime >= l.time);
-    if (currentLine && terminalText.innerText !== currentLine.text) {
-      terminalText.innerText = currentLine.text;
-    }
-  } else {
-    terminalText.innerText = "> No lyric data found for this protocol.";
-  }
 }
 
 progressContainer.addEventListener('click', (e) => {
@@ -523,9 +447,6 @@ function setupAmbientControls() {
   }
 }
 
-// -------------------------
-// Visual Toggles & Themes
-// -------------------------
 function setupModes() {
   document.getElementById('notes-toggle-btn').addEventListener('click', () => {
     document.getElementById('notes-overlay').classList.add('show');
@@ -535,7 +456,6 @@ function setupModes() {
     document.getElementById('notes-overlay').classList.remove('show');
   });
 
-  // Hacker Mode
   let hackerModeActive = false;
   const canvas = document.getElementById('matrix-canvas');
   const ctx = canvas.getContext('2d');
@@ -572,7 +492,6 @@ function setupModes() {
     }
   });
 
-  // Romance Mode
   let romanceMode = false;
   let heartInterval;
   const heartsContainer = document.getElementById('hearts-container');
