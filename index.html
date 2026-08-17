@@ -32,8 +32,8 @@
       <button id="close-modal-btn" class="close-btn" aria-label="Close Modal"><i class="fas fa-times"></i></button>
       <h3><i class="fab fa-whatsapp" style="color: #25D366; text-shadow: 0 0 10px rgba(37,211,102,0.5);" aria-hidden="true"></i> Dedicate a Track</h3>
       <p>Send <span id="modal-track-name" class="highlight-text">this song</span> to someone special.</p>
-      <input type="text" id="dedicate-name" placeholder="Enter their name..." class="premium-input" aria-label="Recipient Name">
-      <button id="send-dedication-btn" class="glow-btn whatsapp-glow">Generate Link</button>
+      <input type="text" id="dedicate-name" placeholder="Enter their name..." class="premium-input styled-input" aria-label="Recipient Name">
+      <button id="send-dedication-btn" class="glow-btn whatsapp-glow action-btn-large">Generate Link</button>
     </div>
   </div>
 
@@ -43,9 +43,9 @@
     <!-- Left Column: Player -->
     <div class="player-card glass-panel premium-glass" id="player-card">
       
-      <!-- Track Notes / Lyrics Overlay -->
+      <!-- Track Notes / Console Overlay -->
       <div id="notes-overlay" class="notes-overlay premium-glass">
-        <button id="close-notes-btn" class="close-btn" aria-label="Close Lyrics"><i class="fas fa-times"></i></button>
+        <button id="close-notes-btn" class="close-btn" aria-label="Close Console"><i class="fas fa-times"></i></button>
         <h3><i class="fas fa-terminal terminal-icon" aria-hidden="true"></i> System Console</h3>
         <p id="notes-track-title" class="notes-title"></p>
         <div class="notes-content">
@@ -57,7 +57,7 @@
       <div class="tilt-container" id="tilt-container">
         <div class="cover-art-container" id="cover-container">
           <div class="cover-overlay"></div>
-          <img id="cover-art" src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?q=80&w=600&auto=format&fit=crop" alt="Album Cover Art representing the current track">
+          <img id="cover-art" src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?q=80&w=600&auto=format&fit=crop" alt="Album Cover Art">
         </div>
       </div>
       
@@ -69,7 +69,7 @@
       <!-- Upgraded Smooth Visualizer -->
       <canvas id="freq-visualizer" width="350" height="80" aria-label="Audio Frequency Visualizer"></canvas>
 
-      <!-- Dual Audio Players (for crossfading) -->
+      <!-- Dual Audio Players -->
       <audio id="audio-player-a" aria-hidden="true"></audio>
       <audio id="audio-player-b" aria-hidden="true"></audio>
 
@@ -120,8 +120,8 @@
         <div class="header-top">
           <p id="greeting-text" class="gradient-text"></p>
           <div class="header-actions">
-            <button id="notes-toggle-btn" class="romance-btn hover-glow" aria-label="Show Lyrics">
-              <i class="fas fa-file-code"></i> Lyrics
+            <button id="notes-toggle-btn" class="romance-btn hover-glow" aria-label="Show Console">
+              <i class="fas fa-file-code"></i> Status
             </button>
             <button id="hacker-btn" class="romance-btn hacker-btn hover-glow" aria-label="Toggle Hacker Mode">
               <i class="fas fa-microchip"></i> Hack
@@ -141,9 +141,7 @@
             </div>
           </div>
         </div>
-<<<<<<< Updated upstream
         
-        <!-- Ambient Controls (Previously missing from HTML) -->
         <div class="ambient-controls">
           <div class="ambient-slider">
             <i class="fas fa-cloud-rain" aria-hidden="true" title="Ambient Rain"></i>
@@ -155,10 +153,7 @@
           </div>
         </div>
 
-        <h3 class="discography-title">Discography Matrix</h3>
-=======
-        <h3><i class="fas fa-terminal"></i> Discography</h3>
->>>>>>> Stashed changes
+        <h3><i class="fas fa-terminal"></i> Discography Matrix</h3>
       </div>
       
       <div class="search-container">
